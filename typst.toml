@@ -1,0 +1,10 @@
+[package]
+name = "unofficial-xamk"
+version = "0.0.0"
+authors = ["Tuomas Yrjölä <mail@avaruskala.fi>"]
+entrypoint = "src/lib.typ"
+keywords = []
+license = ""
+repository = "https://github.com/avaruskala/xamk-typst-templates"
+description = ""
+categories = [""]

@@ -1,0 +1,10 @@
+[conf]
+default-lang = "en"
+data-type = "ftl"
+
+[ftl]
+languages = ["en", "fi"]
+path = "/assets/l10n/lang"
+
+[ftl.args]
+name = "Lore"

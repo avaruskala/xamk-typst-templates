@@ -186,11 +186,11 @@
       v(0pt)
     }
     let caption = it.caption
-    align(left, [
-      #box(stroke: black + 1pt, it.body)
-      #v(-default-values.sizes-state.get().par-after + 4pt)
-      #it.caption
-    ])
+    align(left, box({
+      box(stroke: black + 1pt, it.body)
+      v(-default-values.sizes-state.get().par-after + 2pt)
+      it.caption
+    }))
     v(weak: true, 20pt)
   }
 

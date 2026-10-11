@@ -10,7 +10,7 @@
 
 #let general = (
   title: z.content(),
-  subtitle: z.content(optional: true, default: ""),
+  subtitle: z.content(optional: true, default: none),
   authors: z.array(min: 1, author),
   date: z.date(),
 )

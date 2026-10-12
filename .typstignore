@@ -1,0 +1,4 @@
+scripts
+Justfile
+docs/*
+!docs/*.pdf

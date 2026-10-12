@@ -18,7 +18,7 @@
 #let build-ont(lang) = {
   let fi-optional = lang != "fi"
 
-  let abtract = (
+  let abstract = (
     degree-title: z.content(),
     thesis-title: z.content(),
     commissioned-by: z.content(),
@@ -30,8 +30,8 @@
     ..general,
     degree: z.string(),
     degree-programme: z.string(),
-    fi: z.dictionary(optional: fi-optional, abtract),
-    en: z.dictionary(abtract),
+    fi: z.dictionary(optional: fi-optional, abstract),
+    en: z.dictionary(abstract),
     supervisors: z.array(min: 1, z.content()),
     level: z.choice(default: "bachelor", name: "thesis level", ("bachelor", "master")),
   ))

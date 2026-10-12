@@ -3,8 +3,22 @@ name = "unofficial-xamk"
 version = "0.0.0"
 authors = ["Tuomas Yrjölä <mail@avaruskala.fi>"]
 entrypoint = "src/lib.typ"
-keywords = []
-license = ""
+keywords = ["Xamk", "South-Eastern Finland University of Applied Sciences"]
+license = "MIT"
 repository = "https://github.com/avaruskala/xamk-typst-templates"
-description = ""
-categories = [""]
+description = "Xamk writing and presentation templates"
+categories = ["report", "thesis", "presentation"]
+exclude = [
+	".typstignore",
+	".git",
+	"Justfile",
+	"docs",
+	"scripts",
+	"test",
+	"tests",
+]
+
+[template]
+path = "template"
+entrypoint = "long-task.typ"
+thumbnail = "thumbnail/thumbnail-long-task.png"

@@ -92,10 +92,15 @@
   }
 }
 
+/// Add attachment.
+///
+/// - body (content): Attachment content.
+/// - flipped (bool): Flip pages into landscape orientation.
+/// - name (string): Name of the attachment.
 #let attachment(
-  flipped: false,
-  name: str,
   body,
+  flipped: false,
+  name: "",
 ) = context {
   attachments.update(state => {
     state.push((flipped: flipped, name: name, body: body))

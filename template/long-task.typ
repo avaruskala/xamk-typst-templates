@@ -15,8 +15,6 @@
   theme: (dark: false, logo-yellow: false),
 )
 
-#v(2em)
-
 // Kirjoittajan ohjeet: https://ksamk.sharepoint.com/sites/Opiskelu/SitePages/Kirjoittajan-ohjeet.aspx
 //
 // Writing instructions: https://ksamk.sharepoint.com/sites/Opiskelu/SitePages/en/Kirjoittajan-ohjeet.aspx

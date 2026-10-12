@@ -142,7 +142,18 @@
   )
 
   set heading(numbering: "1.1   ")
-  set page(margin: (top: 2.31cm, left: if theme.wide { 2cm } else { 4.3cm }, bottom: 1.25cm, right: 2cm))
+  set page(
+    margin: (top: 2.31cm, left: if theme.wide { 2cm } else { 4.3cm }, bottom: 1.25cm, right: 2cm),
+    header: context align(center)[
+      #set text(
+        top-edge: "cap-height",
+        bottom-edge: "baseline",
+      )
+      #place(top + center, dy: 1.343cm)[
+        #counter(page).display()
+      ]
+    ],
+  )
 
   show figure.caption: set text(size: 10pt)
   set math.equation(numbering: "(1)")
@@ -158,18 +169,6 @@
     }
     v(weak: true, 1.66em)
   }
-
-  set page(
-    header: context align(center)[
-      #set text(
-        top-edge: "cap-height",
-        bottom-edge: "baseline",
-      )
-      #place(top + center, dy: 1.343cm)[
-        #counter(page).display()
-      ]
-    ],
-  )
 
   set list(indent: 1.9cm, spacing: 2.8pt, body-indent: 1em, marker: (text(weight: 900)[•], [‣], [–]))
   show list: it => {

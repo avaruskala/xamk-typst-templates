@@ -2,12 +2,53 @@
 #import "/src/style.typ" as style
 #import "/src/schema.typ" as schema
 
+/// Long task template function.
+///
+/// *Example*
+/// ```typ
+/// #show: long-task.with(
+///   lang: "fi",
+///   metadata: (
+///     authors: (
+///       (name: "First Last", group: "GRUOPXX", student-number: "12345"),
+///     ),
+///     title: "Title",
+///     subtitle: "Subtitle",
+///     task: "Task",
+///     course: "Course name",
+///     date: datetime.today(),
+///   ),
+///   theme: (dark: false, logo-yellow: false),
+/// )
+/// Body
+/// ```
+///
+/// - body (content): Contents of the document.
+/// - lang (string): Text language.
+/// - theme (dictionary): Theming options.
+/// - metadata (dictionary): Cover details.
+///
+/// -> content
 #let long-task(
-  lang: "fi",
-  cover: none,
-  theme: schema.theme,
-  metadata: schema.long-task,
   body,
+  lang: "fi",
+  theme: (
+    // Dark background and white font color.
+    dark: false,
+    // Yellow logo. Not on white background.
+    logo-yellow: false,
+    cover-font: none,
+    // Set custom logo color. Might break brand guidelines.
+    custom-logo-color: none,
+  ),
+  metadata: (
+    authors: ((name: none, group: none, student-number: none),),
+    title: none,
+    subtitle: none,
+    task: none,
+    course: none,
+    date: none,
+  ),
 ) = {
   let metadata = schema.parse(
     scope: ("metadata",),
@@ -75,6 +116,9 @@
         )
       })
     },
-    body,
+    {
+      v(2em)
+      body
+    },
   )
 }

@@ -1,11 +1,30 @@
 #import "/src/style.typ"
 
+/// Scientific poster template function.
+///
+/// *Example*
+/// ```typ
+/// #show: xamk.scientific-poster.with(
+///   title: "Otsikkoteksti",
+///   lead-paragraph: "Ingressiteksti",
+///   header: none,
+///   flipped: false,
+/// )
+/// Body
+/// ```
+///
+/// - body (content): Contents of the poster.
+/// - title (string): Title.
+/// - lead-paragraph (string): Lead paragraph.
+/// - flipped (bool): Horizontal orientation.
+/// - header (content): Header content.
+/// ->
 #let scientific-poster(
-  title: "Otsikkoteksti",
-  ingress: "Ingressiteksti",
-  flipped: false,
-  image-source: none,
   body,
+  title: "Otsikkoteksti",
+  lead-paragraph: "Ingressiteksti",
+  flipped: false,
+  header: none,
 ) = {
   set text(font: "Arial", size: 20pt, lang: "fi")
   set text(size: 14pt) if flipped
@@ -32,9 +51,9 @@
 
   place(float: true, scope: "parent", top, {
     pad(x: -content-x-inset, y: -5cm, box(width: 100%, {
-      if not flipped and image-source != none {
+      if not flipped and header != none {
         box(width: 100%, height: 176.25mm, {
-          image(width: 100%, fit: "cover", image-source)
+          header
         })
       }
 
@@ -65,11 +84,11 @@
 
   place(float: true, scope: "parent", top, box({
     let title-size = 66pt
-    let ingress-size = 36pt
+    let lead-paragraph-size = 36pt
 
     if flipped {
       title-size = 46.5pt
-      ingress-size = 25pt
+      lead-paragraph-size = 25pt
       v(2.4cm * 2 + 0.25cm)
     } else {
       v(2.4cm)
@@ -84,7 +103,7 @@
       v(10.5mm)
     }
 
-    text(size: ingress-size, weight: "bold", ingress)
+    text(size: lead-paragraph-size, weight: "bold", lead-paragraph)
     linebreak()
     if flipped {
       v(11mm)

@@ -40,11 +40,91 @@
   ]))
 }
 
+/// Thesis template function.
+///
+/// *Example*
+/// ```typ
+/// #show: thesis.with(
+///   lang: "fi",
+///   metadata: (
+///     authors: (
+///       (name: "First Last", group: "GRUOPXX", student-number: "12345"),
+///     ),
+///     title: "Title",
+///     subtitle: "Subtitle",
+///     degree: "Degree",
+///     degree-programme: "Degree programme",
+///     date: datetime.today(),
+///     supervisors: (["Supervisor"],),
+///     fi: (
+///       degree-title: "Tutkintonimike",
+///       thesis-title: "Opinnäytetyön nimi",
+///       commissioned-by: "Toimeksiantaja",
+///       abstract: [
+///       ],
+///       keywords: ("opinnäytetyö",),
+///     ),
+///     en: (
+///       degree-title: "Degree title",
+///       thesis-title: "Title of the thesis",
+///       commissioned-by: "Commissioned by",
+///       abstract: [
+///       ],
+///       keywords: ("thesis",),
+///     ),
+///     level: "bachelor",
+///   ),
+///   theme: (dark: false, logo-yellow: false),
+/// )
+/// Content
+/// ```
+///
+/// - body (content): Contents of the thesis.
+/// - lang (string): Text language.
+/// - theme (dictionary): Theming options.
+/// - metadata (dictionary): Cover and abstract details.
+///
+/// -> content
 #let thesis(
-  theme: schema.theme,
-  metadata: schema.build-ont("fi"),
-  lang: "fi",
   body,
+  lang: "fi",
+  theme: (
+    // Dark background and white font color.
+    dark: false,
+    // Yellow logo. Not on white background.
+    logo-yellow: false,
+    cover-font: none,
+    // Set custom logo color. Might break brand guidelines.
+    custom-logo-color: none,
+  ),
+  metadata: (
+    authors: (
+      (name: none, group: none, student-number: none),
+    ),
+    title: none,
+    subtitle: none,
+    degree: none,
+    degree-programme: none,
+    date: none,
+    supervisors: (),
+    // Only required if `lang` is "fi"
+    fi: (
+      degree-title: none,
+      thesis-title: none,
+      commissioned-by: none,
+      abstract: [],
+      keywords: (),
+    ),
+    en: (
+      degree-title: none,
+      thesis-title: none,
+      commissioned-by: none,
+      abstract: [],
+      keywords: (),
+    ),
+    // bachelor or master
+    level: "bachelor",
+  ),
 ) = {
   let metadata = schema.parse(
     scope: ("metadata",),

@@ -1,3 +1,4 @@
+#import "/src/style.typ"
 
 #let scientific-poster(
   title: "Otsikkoteksti",
@@ -12,7 +13,7 @@
 
   set page(
     paper: "a2",
-    margin: (x: content-x-inset, top: 5cm, bottom: 14.2%),
+    margin: (x: content-x-inset - 1mm, top: 5cm, bottom: 14.2%),
     columns: if flipped { 4 } else { 2 },
     flipped: flipped,
     header-ascent: 30% + 0pt,
@@ -21,10 +22,10 @@
     },
     footer-descent: 5% + 10pt,
     footer: [
-      #pad(x: -content-x-inset - 3mm, box(inset: (x: content-x-inset))[
-        #line(length: 100%, stroke: (paint: gray, thickness: 3pt, dash: ("dot", 4pt)))
-
-      ])
+      #pad(x: -content-x-inset - 3mm, box(inset: (x: content-x-inset), {
+        line(length: 100%, stroke: (paint: gray, thickness: 2.5pt, dash: ("dot", 3.5pt)))
+        style.place-logo(false, false, alignment: top + right, dx: -0.25cm, dy: 1.78cm, width: 5.65cm)
+      }))
     ],
   )
   set columns(gutter: 5.5% + 0pt)
